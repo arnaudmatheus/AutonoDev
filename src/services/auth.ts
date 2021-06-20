@@ -1,11 +1,11 @@
-import { environment } from '../environment/environment';
+//  import { environment } from '../environment/environment';
 
-const {
-  REACT_APP_LOCAL_STORAGE_USER,
-} = environment;
+// const {
+//   REACT_APP_LOCAL_STORAGE_USER,
+// } = environment;
 
 const userAuth = {
-  token: localStorage.getItem(REACT_APP_LOCAL_STORAGE_USER)
+  token: localStorage.getItem('USER')
   || '',
 };
 

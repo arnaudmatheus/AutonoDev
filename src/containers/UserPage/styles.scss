@@ -1,0 +1,64 @@
+@import '../../mixin.scss';
+
+
+#main-container{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: $primary_color;
+    
+    #options{
+        align-self: center;
+    
+        padding-bottom:15vh;
+        #title-text{
+            display: flex;
+            justify-content: center;
+            
+        }
+        #first-options{
+            align-self: center;
+            justify-self: space-between;
+            
+            
+            #buscar{
+                display: flex;
+                background-color: $secondary_color;
+                border-radius: 1vw;
+                h1{
+                    align-self: center;
+                }
+            }
+            #favoritos{
+                display: flex;
+                background-color:$secondary_color;
+                border-radius: 1vw;
+                
+            }
+        }
+
+        #second-options{
+            align-self: center;
+            padding-top: 25vh;
+            #Graficos{
+                display: flex;
+                background-color: $secondary_color;
+                border-radius: 1vw;
+            }
+            #Configs{
+                display: flex;
+                background-color:$secondary_color;
+                
+                border-radius: 1vw;
+            }
+        }
+
+        
+        h1{
+            
+            color: white;
+        }
+      
+
+    }
+}
