@@ -52,7 +52,15 @@ const SearchPage = () => {
             return;
         }
         setPages(prevState => prevState + 40)
-        getBooks(pages + 40)
+        getBooks(pages+40)
+    }
+
+    const pageDecrement = () =>{
+        if(pages === 0){
+            return;
+        }
+        setPages(prevState => prevState - 40)
+        getBooks(pages-40)
     }
     
 
@@ -69,6 +77,12 @@ const SearchPage = () => {
                 />  
                     
             </Input>
+            <button onClick = {()=>{
+                pageIncrement()
+            }} />
+            <button onClick = {()=>{
+                pageDecrement()
+            }} />
             <Books numberOfCards={booksFound?.length} books={!!booksFound?.length}>
                 {booksFound?.length
                 ? booksFound.map(book => {
