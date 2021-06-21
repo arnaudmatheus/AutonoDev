@@ -63,7 +63,7 @@ const BookCards: React.FC<BookProps> = ({
                 <div className = 'header'>
                     <Typography variant = "h6" noWrap = {true}>{title}</Typography>    
                 </div>
-                <img src = {thumbnail} alt = 'Thumbnail' className = 'img'></img>
+                {(!!thumbnail)?<img src = {thumbnail} alt = 'Thumbnail' className = 'img' />:<img className = 'img' src = 'http://centrodametropole.fflch.usp.br/sites/centrodametropole.fflch.usp.br/files/user_files/livros/imagem/capa-no-book-cover.png' alt = 'NO cape'/>}
                 <CardContent>
                     <FavoriteIcon/>
                     <button className='details' title = 'detalhes' onClick ={ () => {

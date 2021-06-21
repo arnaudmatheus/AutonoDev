@@ -1,10 +1,11 @@
-import React,{ useState, useCallback} from 'react';
+import React,{ useState, useCallback,useEffect} from 'react';
 import api from '../../services/api'
 import BookCards from '../../components/BookCard';
-import { Books,Container,Input} from './styles'
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
-
+import TopBar from '../../components/Header'
+import { Container, } from 'react-bootstrap';
+import  './styles.scss'
 interface BookData {
 
     id:string;
@@ -23,11 +24,12 @@ interface BookData {
 }
 
 const SearchPage = () => {
-    const [searchInput,setSearchInput] = useState('harry')
+    const [searchInput,setSearchInput] = useState('')
     const [booksFound, setBooksFound] = useState<BookData[]>([])
     const [itens,setItens] = useState(0)
     const [pages,setPages] = useState(0)
     
+    //Get books and totalItens
     const getBooks = useCallback(async (startIndex:number) => {
             try {
                 const res = await api.get(`${searchInput}&startIndex=${startIndex}&maxResults=20`)
@@ -41,33 +43,40 @@ const SearchPage = () => {
             }  
     }, [searchInput])
     
+   
+    
     const handleButtonClick = () => {
         
         setBooksFound([])
         getBooks(0)
     }
+    
+    //Pagination
     const pageIncrement = () =>{
-        if(pages + 40 > itens){
+        if(pages + 20 > itens){
             return;
         }
-        setPages(prevState => prevState + 40)
-        getBooks(pages+40)
+        getBooks(pages+20)
+        setPages(prevState => prevState + 20)
     }
 
     const pageDecrement = () =>{
         if(pages === 0){
             return;
         }
-        setPages(prevState => prevState - 40)
-        getBooks(pages-40)
+        getBooks(pages-20)
+        setPages(prevState => prevState - 20)
     }
     
 
      
     return(
-        <Container>
-            <Input>
+        
+                   
+        <Container fluid id = 'principal-container'>
+            
                 <input
+                    id = 'input'
                     type="text"
                     value={searchInput}
                     placeholder="Book's title, author..."
@@ -75,7 +84,7 @@ const SearchPage = () => {
                     onKeyPress={(e) => e.key === 'Enter' && handleButtonClick()}
                 />  
                     
-            </Input>
+            
             <ButtonGroup >
                 <Button onClick = {()=>{
                     pageIncrement()
@@ -87,7 +96,7 @@ const SearchPage = () => {
                 </Button>
             </ButtonGroup>
             
-            <Books numberOfCards={booksFound?.length} books={!!booksFound?.length}>
+            <div className = 'books'>
                 {booksFound?.length
                 ? booksFound.map(book => {
                     return (<BookCards
@@ -103,8 +112,12 @@ const SearchPage = () => {
                     }
                 )
                 : null}
-            </Books>      
+
+
+            </div>
+                
         </Container>
+        
     )
 }
 

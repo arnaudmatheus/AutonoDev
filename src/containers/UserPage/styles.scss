@@ -17,41 +17,26 @@
             
         }
         #first-options{
+            display: flex;
             align-self: center;
-            justify-self: space-between;
+            justify-self: center;
             
             
-            #buscar{
-                display: flex;
+            .buscar{
                 background-color: $secondary_color;
                 border-radius: 1vw;
-                h1{
-                    align-self: center;
-                }
+                width: 10vw ;
+                height: 10vh;
             }
-            #favoritos{
-                display: flex;
+            .favoritos{
                 background-color:$secondary_color;
                 border-radius: 1vw;
-                
+                width: 10vw ;
+                height: 10vh;
             }
         }
 
-        #second-options{
-            align-self: center;
-            padding-top: 25vh;
-            #Graficos{
-                display: flex;
-                background-color: $secondary_color;
-                border-radius: 1vw;
-            }
-            #Configs{
-                display: flex;
-                background-color:$secondary_color;
-                
-                border-radius: 1vw;
-            }
-        }
+      
 
         
         h1{
