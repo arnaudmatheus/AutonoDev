@@ -2,8 +2,8 @@ import React,{ useState, useCallback} from 'react';
 import api from '../../services/api'
 import BookCards from '../../components/BookCard';
 import { Books,Container,Input} from './styles'
-import { SettingsSystemDaydreamTwoTone } from '@material-ui/icons';
-import { Pagination } from 'react-bootstrap';
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 interface BookData {
 
@@ -29,7 +29,7 @@ const SearchPage = () => {
     
     const getBooks = useCallback(async (startIndex:number) => {
             try {
-                const res = await api.get(`${searchInput}&startIndex=${startIndex}&maxResults=40`)
+                const res = await api.get(`${searchInput}&startIndex=${startIndex}&maxResults=20`)
             
                 setBooksFound(res.data.items)
                 setItens(res.data?.totalItens)
@@ -77,12 +77,17 @@ const SearchPage = () => {
                 />  
                     
             </Input>
-            <button onClick = {()=>{
-                pageIncrement()
-            }} />
-            <button onClick = {()=>{
-                pageDecrement()
-            }} />
+            <ButtonGroup>
+                <Button onClick = {()=>{
+                    pageIncrement()
+                }}>Next</Button>
+                <Button onClick = {()=>{
+                    pageDecrement()
+                }} >
+                    prev
+                </Button>
+            </ButtonGroup>
+            
             <Books numberOfCards={booksFound?.length} books={!!booksFound?.length}>
                 {booksFound?.length
                 ? booksFound.map(book => {

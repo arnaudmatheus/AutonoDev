@@ -3,7 +3,6 @@ import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import { Button} from 'react-bootstrap';
 import ModalDetails from '../ModalDetails';
 import './styles.scss'
 
@@ -50,7 +49,7 @@ const BookCards: React.FC<BookProps> = ({
                 publisher = {publisher}
             />
             <CardHeader title = {title} subheader = {authors} />
-            <img src = {thumbnail}></img>
+            <img src = {thumbnail} alt = 'Thumbnail'></img>
             <CardContent>
                 <FavoriteIcon/>
                 <button title = 'detalhes' onClick ={ () => {

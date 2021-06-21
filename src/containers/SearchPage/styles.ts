@@ -18,22 +18,6 @@ export const Container = styled.div`
 `
 
 
-export const Books = styled.div<BookCardProps>`
-  display:grid;
-  grid-template-columns: 1fr 1fr 1fr;
-
-  grid-gap: 20px;
-  margin-top:4vh;
-  @media only screen and (max-width:648){
-    display:grid;
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-  
-}
-
-`
-
-
 export const Input = styled.div`
 
 
@@ -77,13 +61,21 @@ export const Input = styled.div`
       } 
     }
   }
-  svg {
-    transform: translateY(7.5px);
-    color: #1D0632;
-    transition: color 0.2s;
-    @media only screen and (max-width: 379px){
-      position: absolute;
-      transform: translateX(-30px) translateY(5.5px);
-    }
+  
   }
+`
+
+export const Books = styled.div<BookCardProps>`
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  grid-gap: 20px;
+  margin-top:4vh;
+  @media only screen and (max-width:648){
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  
+}
+
 `

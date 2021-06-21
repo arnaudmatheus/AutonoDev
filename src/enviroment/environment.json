@@ -1,0 +1,4 @@
+{
+    "name": "dev",
+    "REACT_APP_LOCAL_STORAGE_USER": "@Autono/favs"
+}

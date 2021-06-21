@@ -36,7 +36,7 @@ const ModalDetails: React.FC<ModalProps> = ({
                 
             </Modal.Header>
             <ModalBody>
-                <img src = {thumbnail}></img>
+                <img src = {thumbnail} alt = 'Book '></img>
                 <p>{description}</p>
             </ModalBody>
             <Modal.Footer>
