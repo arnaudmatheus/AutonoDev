@@ -1,12 +1,26 @@
-import { action } from 'typesafe-actions';
+
+import { Action} from 'redux';
 import {
   FavTypes, FavState,
 } from './types';
+import { BookFavData,RemoveBookData } from './types';
 
-export const ADD_BOOKS = (books: FavState) => {
-  action(FavTypes.ADD_BOOKS, { books });
-};
+export interface ADD_BOOKS extends Action{
+  type:FavTypes.ADD_BOOKS,
+  payload: BookFavData,
+}
 
-export const REMOVE_BOOKS = (books:FavState) => {
-  action(FavTypes.REMOVE_BOOKS,{books});
-};
+export interface REMOVE_BOOKS extends Action{
+  type:FavTypes.REMOVE_BOOKS,
+  payload: RemoveBookData,
+}
+
+export const ADD_BOOKS = (payload:BookFavData):ADD_BOOKS => ({
+  type: FavTypes.ADD_BOOKS,
+  payload,
+});
+
+export const REMOVE_BOOKS = (payload:RemoveBookData) => ({
+  type: FavTypes.REMOVE_BOOKS,
+  payload
+});

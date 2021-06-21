@@ -1,4 +1,5 @@
 
+
 import { Reducer } from 'redux';
 import { FavState, FavTypes} from './types';
 
@@ -16,12 +17,12 @@ const reducer: Reducer<FavState> = (
     const updateFavoritesState = state;
     switch(action.type){
         case FavTypes.ADD_BOOKS:
-            updateFavoritesState.books = action.payload.books
             
-            return { ...state, ...updateFavoritesState };
+            
+            return { books:[...state.books,action.payload] };
         
         case FavTypes.REMOVE_BOOKS:
-            updateFavoritesState.books = action.payload.books
+            
             return { ...state, ...updateFavoritesState };
         default:
             return state;

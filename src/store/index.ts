@@ -6,7 +6,6 @@ import { FavState } from './ducks/books/types';
 import rootReducer from './ducks/rootReducer';
 
 export interface ApplicationState {
-  user: UserState,
   books: FavState
 }
 let middleware: any = [];

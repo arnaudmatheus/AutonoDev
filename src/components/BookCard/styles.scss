@@ -2,8 +2,11 @@
 
 
 
-
 .card{
-    max-Width: 250px;
-    max-height: 250px;
+    max-height: 50vh;
+    max-width: 20vw;
+    .details{
+        width: 5vw;
+        margin-left: 10vw;
+    }
 }

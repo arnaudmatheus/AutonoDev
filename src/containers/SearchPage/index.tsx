@@ -7,17 +7,18 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 interface BookData {
 
+    id:string;
     volumeInfo: {
-      title: string;
-      categories?: string[];
-      publisher?: string;
-      authors: string[];
-      description: string;
-      infoLink: string;
-      imageLinks?: {
-        thumbnail: string;
-      }
-      publishedDate: string;
+        title: string;
+        categories?: string[];
+        publisher?: string;
+        authors: string[];
+        description: string;
+        infoLink: string;
+        imageLinks?: {
+            thumbnail: string;
+        }
+        publishedDate: string;
     }
 }
 
@@ -33,8 +34,6 @@ const SearchPage = () => {
             
                 setBooksFound(res.data.items)
                 setItens(res.data?.totalItens)
-                
-                console.log(res)
                 
             } catch (err) { 
                 setBooksFound([])
@@ -77,7 +76,7 @@ const SearchPage = () => {
                 />  
                     
             </Input>
-            <ButtonGroup>
+            <ButtonGroup >
                 <Button onClick = {()=>{
                     pageIncrement()
                 }}>Next</Button>
@@ -92,6 +91,7 @@ const SearchPage = () => {
                 {booksFound?.length
                 ? booksFound.map(book => {
                     return (<BookCards
+                            id = {book.id}
                             title={book.volumeInfo.title}
                             authors={book.volumeInfo.authors}
                             thumbnail = {book.volumeInfo.imageLinks?.thumbnail}

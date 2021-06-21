@@ -12,6 +12,9 @@
         #title-text{
             display: flex;
             justify-content: center;
+            .Title{
+                color: $secondary_color;
+            }
         }
         #subtitle-text{
             display: flex;
@@ -21,6 +24,12 @@
         #login-line{
             display: flex;
             justify-content: center;
+            .login{
+                width: 15vw;
+                height:5vh;
+                border-radius: 15px;
+                background-color: #C4C4C4;
+            }
         }
         
         h1{
