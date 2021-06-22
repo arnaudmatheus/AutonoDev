@@ -3,7 +3,6 @@ import api from '../../services/api'
 import BookCards from '../../components/BookCard';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
-import TopBar from '../../components/Header'
 import { Container, } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import {ApplicationState} from '../../store';
@@ -75,9 +74,7 @@ const SearchPage = () => {
 
      
     return(
-        <>
-        <TopBar/>
-                   
+        
         <Container fluid id = 'principal-container'>
             
                 <input
@@ -125,7 +122,7 @@ const SearchPage = () => {
             </div>
                 
         </Container>
-        </>
+        
     )
 }
 
