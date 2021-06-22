@@ -7,7 +7,7 @@ const TopBar = () => (
   <header className="page-header">
     <div className="top-bar-container">
     <div className="header-text">
-        <Link to="/favs">
+        <Link to="/fav">
           <strong>Favoritos</strong>
         </Link>
       </div>

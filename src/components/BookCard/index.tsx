@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import { useDispatch } from 'react-redux';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -20,6 +20,7 @@ interface BookProps{
     description: string;
     thumbnail?: string;
     publishedDate: string;
+    favorite:boolean;
 }
 
 
@@ -31,11 +32,12 @@ const BookCards: React.FC<BookProps> = ({
     description,
     categories,
     publisher,
-    publishedDate
+    publishedDate,
+    favorite
 }:BookProps) => {
     
     const [details,setDeatails] = useState(false)
-    
+    const [fav,setFav] = useState(favorite)
     
     const handleClose = () =>{
         setDeatails(false)
@@ -46,19 +48,35 @@ const BookCards: React.FC<BookProps> = ({
 
     const dispatch = useDispatch();
     
-    const favorite = () => {
-        dispatch({type: FavTypes.ADD_BOOKS,payload:{id,title,thumbnail,authors,description,categories,publisher,publishedDate}});
-        toast(
-            'Livro adicionado ao favoritos com sucesso',
-            {type:'success'}
-        );
+    const Handlefavorite = () => {
+        if(fav === false){
+
+            dispatch({type: FavTypes.REMOVE_BOOKS,payload:{id}})
+            setFav(true)
+            
+            toast(
+                'Livro removido do favoritos com sucesso',
+                {type:'success'}
+            );
+        }else{
+            dispatch({type: FavTypes.ADD_BOOKS,payload:{id,title,thumbnail,authors,description,categories,publisher,publishedDate}});
+            toast(
+                'Livro adicionado ao favoritos com sucesso',
+                {type:'success'}
+                );
+                setFav(false)
+        }
         
     };
 
-    const removeFavorite = () => {
+    const RemoveFav = () =>{
+
         dispatch({type: FavTypes.REMOVE_BOOKS,payload:{id}})
+        setFav(true)
         
-    };
+        
+    }
+    
     
     return(
     
@@ -79,9 +97,10 @@ const BookCards: React.FC<BookProps> = ({
                 </div>
                 {(!!thumbnail)?<img src = {thumbnail} alt = 'Thumbnail' className = 'img' />:<img className = 'img' src = 'http://centrodametropole.fflch.usp.br/sites/centrodametropole.fflch.usp.br/files/user_files/livros/imagem/capa-no-book-cover.png' alt = 'NO cape'/>}
                 <CardContent>
-                    <FavoriteIcon color='primary' onClick = {favorite}/>
+                    {(favorite)?<FavoriteIcon  onClick = {Handlefavorite}/>:<FavoriteIcon color='primary' onClick = {RemoveFav}/>}
                     <button  className='details' title = 'detalhes'  onClick ={ () => {
                         handleOpening();
+                      
                         
                     }}>Detalhes</button>
                 </CardContent>

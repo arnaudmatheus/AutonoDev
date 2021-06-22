@@ -5,6 +5,9 @@ import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import TopBar from '../../components/Header'
 import { Container, } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+import {ApplicationState} from '../../store';
+
 import  './styles.scss'
 interface BookData {
 
@@ -27,9 +30,8 @@ const SearchPage = () => {
     const [searchInput,setSearchInput] = useState('')
     const [booksFound, setBooksFound] = useState<BookData[]>([])
     const [itens,setItens] = useState(0)
-    const [pages,setPages] = useState(0)
-    
-   
+    const [pages,setPages] = useState(0)    
+    const arrayBooks = useSelector((store:ApplicationState) => store.books)
 
     //Get books and totalItens
     const getBooks = useCallback(async (startIndex:number) => {
@@ -73,7 +75,8 @@ const SearchPage = () => {
 
      
     return(
-        
+        <>
+        <TopBar/>
                    
         <Container fluid id = 'principal-container'>
             
@@ -110,6 +113,7 @@ const SearchPage = () => {
                             thumbnail = {book.volumeInfo.imageLinks?.thumbnail}
                             description = {book.volumeInfo.description}
                             publishedDate = {book.volumeInfo.publishedDate}
+                            favorite = {arrayBooks.books.filter(boo => boo.id === book.id).length ===0}
                         />
                         
                     )
@@ -121,7 +125,7 @@ const SearchPage = () => {
             </div>
                 
         </Container>
-        
+        </>
     )
 }
 

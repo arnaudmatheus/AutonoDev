@@ -21,6 +21,7 @@ const Favorite = () => {
                             thumbnail = {book.thumbnail}
                             description = {book.description}
                             publishedDate = {book.publishedDate}
+                            favorite = {arrayBooks.books.filter(boo => boo.id === book.id).length ===0}
                         />
                         
                     )
