@@ -6,6 +6,9 @@ import { Provider } from 'react-redux';
 import persistStore from 'redux-persist/es/persistStore';
 import store from '../../store';
 import { PersistGate } from 'redux-persist/integration/react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const persistor = persistStore(store);
 
@@ -17,6 +20,14 @@ const App = () => (
           <Switch>
             <Routes />
           </Switch>
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            closeOnClick
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+      />
         </div>
       </BrowserRouter>
 

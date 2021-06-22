@@ -6,7 +6,7 @@ import './styles.scss';
 
 const UserPage = () =>{
     return(
-        <Container fluid id = "main-container">
+        <Container fluid id = "main-container2">
             <Col id = "options">
                 <Row noGutters id = "title-text">
                     <h1>Bem vindo,@Username</h1>

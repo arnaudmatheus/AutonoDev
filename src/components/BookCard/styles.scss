@@ -7,9 +7,15 @@
     max-width: 20vw;
     
     .details{
-        height: 2vh;
+        height: 4vh;
         width: 5vw;
+        margin-top: 0vh;
         margin-left: 10vw;
+        border-radius: 20px;
+        background-color:primary_color;
+        border: none;
+        text-align: center;
+        text-decoration: none;
         
     }
 }

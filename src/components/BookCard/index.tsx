@@ -7,6 +7,8 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ModalDetails from '../ModalDetails';
 import Typography from '@material-ui/core/Typography';
 import { FavTypes } from '../../store/ducks/books/types';
+import { toast } from 'react-toastify';
+
 import './styles.scss'
 
 interface BookProps{
@@ -31,7 +33,9 @@ const BookCards: React.FC<BookProps> = ({
     publisher,
     publishedDate
 }:BookProps) => {
+    
     const [details,setDeatails] = useState(false)
+    
     
     const handleClose = () =>{
         setDeatails(false)
@@ -43,8 +47,18 @@ const BookCards: React.FC<BookProps> = ({
     const dispatch = useDispatch();
     
     const favorite = () => {
-        dispatch({type: FavTypes.ADD_BOOKS,payload:{id,title,thumbnail,authors,description,categories,publisher,publishedDate}})
-    }
+        dispatch({type: FavTypes.ADD_BOOKS,payload:{id,title,thumbnail,authors,description,categories,publisher,publishedDate}});
+        toast(
+            'Livro adicionado ao favoritos com sucesso',
+            {type:'success'}
+        );
+        
+    };
+
+    const removeFavorite = () => {
+        dispatch({type: FavTypes.REMOVE_BOOKS,payload:{id}})
+        
+    };
     
     return(
     
@@ -65,11 +79,11 @@ const BookCards: React.FC<BookProps> = ({
                 </div>
                 {(!!thumbnail)?<img src = {thumbnail} alt = 'Thumbnail' className = 'img' />:<img className = 'img' src = 'http://centrodametropole.fflch.usp.br/sites/centrodametropole.fflch.usp.br/files/user_files/livros/imagem/capa-no-book-cover.png' alt = 'NO cape'/>}
                 <CardContent>
-                    <FavoriteIcon/>
-                    <button className='details' title = 'detalhes' onClick ={ () => {
+                    <FavoriteIcon color='primary' onClick = {favorite}/>
+                    <button  className='details' title = 'detalhes'  onClick ={ () => {
                         handleOpening();
-                        favorite();
-                    }}/>
+                        
+                    }}>Detalhes</button>
                 </CardContent>
         </Card>
         

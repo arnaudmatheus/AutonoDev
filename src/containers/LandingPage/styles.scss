@@ -24,7 +24,7 @@
         #login-line{
             display: flex;
             justify-content: center;
-            .login{
+            #login{
                 width: 15vw;
                 height:5vh;
                 border-radius: 15px;
@@ -40,5 +40,23 @@
             color: white;
         }
 
+    }
+}
+
+@media (max-width:425px){
+    #main-container{
+        #subtitle-text{
+            display: flex;
+            justify-content: center;
+            margin-left: 12vw;
+        }
+        #login-line{
+            margin-top: 5vh;
+            
+            #login{
+                width: 100px;
+            }
+        }
+        
     }
 }

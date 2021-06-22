@@ -23,7 +23,7 @@ const reducer: Reducer<FavState> = (
         
         case FavTypes.REMOVE_BOOKS:
             
-            return { ...state, ...updateFavoritesState };
+            return {books:state.books.filter(book => book.id !== action.payload.id) };
         default:
             return state;
         

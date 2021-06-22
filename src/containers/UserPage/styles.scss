@@ -1,7 +1,7 @@
 @import '../../mixin.scss';
 
 
-#main-container{
+#main-container2{
     display: flex;
     width: 100vw;
     height: 100vh;
@@ -18,21 +18,22 @@
         }
         #first-options{
             display: flex;
+            flex-direction: row;
             align-self: center;
-            justify-self: center;
-            
+            justify-content: center;
+            gap:50px;
             
             .buscar{
                 background-color: $secondary_color;
                 border-radius: 1vw;
-                width: 10vw ;
-                height: 10vh;
+                width: 15vw ;
+                height: 5vh;
             }
             .favoritos{
                 background-color:$secondary_color;
                 border-radius: 1vw;
-                width: 10vw ;
-                height: 10vh;
+                width: 15vw ;
+                height: 5vh;
             }
         }
 
@@ -43,7 +44,35 @@
             
             color: white;
         }
+     
       
 
     }
+}
+
+
+@media (max-width:425px) {
+    #main-container2{
+        #options{
+
+
+            h1{
+                font-size: 25px;
+            }
+        }
+    }
+    
+}
+
+@media (max-width:320px) {
+    #main-container2{
+        #options{
+            
+
+            h1{
+                font-size: 20px;
+            }
+        }
+    }
+    
 }

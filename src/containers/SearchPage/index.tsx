@@ -29,6 +29,8 @@ const SearchPage = () => {
     const [itens,setItens] = useState(0)
     const [pages,setPages] = useState(0)
     
+   
+
     //Get books and totalItens
     const getBooks = useCallback(async (startIndex:number) => {
             try {
@@ -85,16 +87,18 @@ const SearchPage = () => {
                 />  
                     
             
-            <ButtonGroup >
-                <Button onClick = {()=>{
+            <div id='buttons'>
+                <button id = 'button'  onClick = {()=>{
                     pageIncrement()
-                }}>Next</Button>
-                <Button onClick = {()=>{
+                }} > Prev </button>
+                
+                <button id = 'button' onClick = {()=>{
                     pageDecrement()
-                }} >
-                    prev
-                </Button>
-            </ButtonGroup>
+                }}  >
+                    Next
+                </button>
+            
+            </div>
             
             <div className = 'books'>
                 {booksFound?.length

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import {Container} from 'react-bootstrap'
-import store,{ApplicationState} from '../../store';
+import {ApplicationState} from '../../store';
 import BookCards from '../../components/BookCard'
 import './styles.scss';
 
@@ -26,7 +26,7 @@ const Favorite = () => {
                     )
                     }
                 )
-                : null}
+                : <h1>Você ainda não possui favoritos</h1>}
 
 
 
