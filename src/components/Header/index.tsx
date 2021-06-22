@@ -6,7 +6,7 @@ import './styles.scss';
 const TopBar = () => (
   <header className="page-header">
     <div className="top-bar-container">
-    <div className="header-text">
+      <div className="header-text">
         <Link to="/fav">
           <strong>Favoritos</strong>
         </Link>

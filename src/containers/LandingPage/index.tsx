@@ -16,7 +16,9 @@ const LandingPage = () =>{
                     <h3>Sua plataforma de consulta de livros</h3>
                 </Row>
                 <Row noGutters id = "login-line">
-                    <Link to = '/user' id = "login"  />
+                    <Link  to = '/user' id = "login"  >
+                        <h3 id = "login-text">Entrar</h3>    
+                    </Link>
 
                 </Row>
             </Col>
