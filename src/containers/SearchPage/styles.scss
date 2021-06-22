@@ -20,14 +20,7 @@
         max-width: 420px; 
         background: white;
         border-radius: 15px;
-        @media only screen and (max-width: 379px) {
-            height: 52.5px;
-            width: 280px;
-        }
-        @media only screen and (max-width: 493px) and (min-width: 380px) {
-            height: 62.5px;
-            width: 350px;
-        }
+        
         
 
         
