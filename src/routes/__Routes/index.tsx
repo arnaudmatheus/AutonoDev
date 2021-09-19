@@ -1,6 +1,5 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import ExampleExample from '../../containers/ExampleExample';
 import LandingPage from '../../containers/LandingPage';
 import UserPage from '../../containers/UserPage';
 import SearchPage from '../../containers/SearchPage';

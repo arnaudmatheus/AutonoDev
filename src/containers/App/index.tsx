@@ -7,14 +7,15 @@ import persistStore from 'redux-persist/es/persistStore';
 import store from '../../store';
 import { PersistGate } from 'redux-persist/integration/react';
 import { ToastContainer } from 'react-toastify';
+import { GlobalStyle } from '../../global';
 import 'react-toastify/dist/ReactToastify.css';
-
 
 const persistor = persistStore(store);
 
 const App = () => (
-  <Provider store = {store}>
-    <PersistGate persistor = {persistor}>
+  <Provider store={store}>
+    <GlobalStyle />
+    <PersistGate persistor={persistor}>
       <BrowserRouter>
         <div className="App">
           <Switch>
@@ -27,12 +28,10 @@ const App = () => (
             pauseOnFocusLoss
             draggable
             pauseOnHover
-      />
+          />
         </div>
       </BrowserRouter>
-
     </PersistGate>
-
   </Provider>
 );
 
