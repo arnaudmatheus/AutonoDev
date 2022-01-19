@@ -18,7 +18,7 @@ export const BookActionsCreators = {
     FavTypes.REMOVE_BOOKS_FROM_FAV_REQUEST,
     FavTypes.REMOVE_BOOKS_FROM_FAV_SUCCESS,
     FavTypes.REMOVE_BOOKS_FROM_FAV_FAILURE,
-  )<void, RemoveBookData, string>(),
+  )<RemoveBookData, RemoveBookData, string>(),
 };
 
 type ActionTypes = ActionType<typeof BookActionsCreators>;

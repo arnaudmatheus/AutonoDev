@@ -13,6 +13,17 @@ function* addBookToFav({
   }
 }
 
+function* removeBookFromFav({
+  payload,
+}: ReturnType<typeof BookActionsCreators.removeBookFromFav.request>) {
+  try {
+    yield put(BookActionsCreators.removeBookFromFav.success(payload));
+  } catch (error) {
+    yield put(BookActionsCreators.removeBookFromFav.failure('error'));
+  }
+}
+
 export default all([
   takeLatest(BookActionsCreators.addBookToFav.request, addBookToFav),
+  takeLatest(BookActionsCreators.removeBookFromFav.request, removeBookFromFav),
 ]);

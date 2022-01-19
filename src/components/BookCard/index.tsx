@@ -49,7 +49,8 @@ const BookCards: React.FC<BookProps> = ({
 
   const Handlefavorite = () => {
     if (fav === false) {
-      dispatch({ type: FavTypes.REMOVE_BOOKS, payload: { id } });
+      // dispatch({ type: FavTypes.REMOVE_BOOKS, payload: { id } });\
+      dispatch(BookActionsCreators.removeBookFromFav.request({ id }));
       setFav(true);
 
       toast('Livro removido do favoritos com sucesso', { type: 'success' });
@@ -73,7 +74,7 @@ const BookCards: React.FC<BookProps> = ({
   };
 
   const RemoveFav = () => {
-    dispatch({ type: FavTypes.REMOVE_BOOKS, payload: { id } });
+    dispatch(BookActionsCreators.removeBookFromFav.request({ id }));
     setFav(true);
   };
 
